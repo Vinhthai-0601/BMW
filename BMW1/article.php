@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 include 'includes/header.php';
-var_dump($_GET);
+
 $num_rows = 0;
 if(isset($_GET['id'])) {
   $sql = "SELECT posts.Date_time, posts.Title, posts.Content, posts.Author, posts.Post_ID, posts.Image
@@ -25,9 +25,6 @@ if(isset($_GET['id'])) {
  ?>
 
  <style media="screen">
-   a{
-     color : black;
-   }
 
    a:hover{
      color : white !important;
@@ -35,12 +32,13 @@ if(isset($_GET['id'])) {
    }
 
    .jumbotron.jumbotron-fluid.article {
-    background: url(https://i.pinimg.com/564x/17/7e/0f/177e0f772f771e2a08607b88ffef57b7.jpg);
+    background: url(https://images.hgmsites.net/hug/mclaren-600lt-spider-segestria-borealis-by-mso_100747301_h.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
  </style>
+   <link rel="stylesheet" href="css/article.css">
       <div class="jumbotron jumbotron-fluid article">
         <div class="container">
           <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back</a></button><br>
@@ -50,7 +48,7 @@ if(isset($_GET['id'])) {
             <h3>Author:  <?php echo $author; ?></h3>
             <p>Content: <?php echo $body ?></p>
             <h5 class="font-weight-light"><em><?php echo date_format($date,"Y/m/d"); ?> </em></h5>
-            <div class='row'>
+            <div class='row1'>
               <div class='col-md-4 mb-2'>
                 <button type='button' name='' class='btn btn-lg btn-outline-dark mt-3'><i class='far fa-edit mr-2'></i> <a href='edit.php?id=<?php echo $_GET['id']?>'>Edit Post</a> </button>
               </div>
@@ -74,4 +72,34 @@ if(isset($_GET['id'])) {
            ?>
         </div>
       </div>
-<?php include 'includes/footer.php'; ?>
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row pdn-top-30">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                     <div class="Follow">
+                        <h3>CONTACT US</h3>
+                     </div>
+                     <ul class="location_icon">
+                        <li> <a href="#"><img src="icon/facebook.png"></a></li>
+                        <li> <a href="#"><img src="icon/Twitter.png"></a></li>
+                        <li> <a href="#"><img src="icon/linkedin.png"></a></li>
+                        <li> <a href="#"><img src="icon/instagram.png"></a></li>
+                     </ul>
+                  </div>
+                  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                     <div class="Follow">
+                        <h3>CONTACT US WITH YOUR EMAIL</h3>
+                     </div>
+                     <input class="Newsletter" placeholder="Enter your email" type="Enter your email">
+                     <button class="Subscribe">SENT</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <p>Car World's Page belong to Minh Nhật & Vinh Thái!<a href="#"></a></p>
+            </div>
+         </div>
+      </footer>

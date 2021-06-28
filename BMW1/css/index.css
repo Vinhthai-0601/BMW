@@ -56,9 +56,33 @@ a.title:hover {
     color: #fff;
     padding: 0px 26px 1px 32px;
     float: left;
-    font-size: 18px;
+    font-size: 29px;
     font-weight: 400;
     border: solid #fff 2px;
     border-radius: 32px;
     margin: 5px 11px 20px 600px;
+}
+a.main_bt1:hover {
+    color: #ff0080;
+}
+.main_bt1:hover {
+    background: black;
+    border: solid #000 2px;
+}
+.main_bt2 {
+    background: black;
+    color: #fff;
+    padding: 0px 26px 1px 32px;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    border: solid #fff 2px;
+    border-radius: 32px;
+    margin: 5px 11px 20px 131px;
+}
+a {
+    color: #ff002d;
+}
+a.main_bt2:hover {
+    color: hotpink;
 }

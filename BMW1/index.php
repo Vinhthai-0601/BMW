@@ -227,14 +227,14 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
           <div class="exp2">
             <h1>Trade-In Value</h1>
           <p> Get the latest information on your vehicle’s trade-in value today.</p>
-            <div class="button_section"> <a class="main_bt1" href="https://www.intelliprice.com/intellipricedealer/start.htm?dealerid=952001">VISIT BLACK BOOK</a>  </div>
+            <div class="button_section"> <a class="main_bt2" href="https://www.intelliprice.com/intellipricedealer/start.htm?dealerid=952001">VISIT BLACK BOOK</a>  </div>
           </div>
         </div>
         <div class="column-5">
           <div class="exp2">
             <h1>Check Your Credit Score</h1>
           <p>See where you stand on your journey to owning a BMW..</p>
-            <div class="button_section"> <a class="main_bt1" href="https://www.intelliprice.com/intellipricedealer/start.htm?dealerID=9541001">VISI EQUIFAX</a>  </div>
+            <div class="button_section"> <a class="main_bt2" href="https://www.intelliprice.com/intellipricedealer/start.htm?dealerID=9541001">VISI EQUIFAX</a>  </div>
         </div>
         </div>
         <div class="column-5">
@@ -242,7 +242,7 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
           <div class="exp2">
             <h1>Apply for Financing</h1>
           <p>Own the BMW of your dreams with BMW Financial Services.</p>
-          <div class="button_section"> <a class="main_bt1" href="https://creditapp.bmwusa.com/">GET STARTED</a>  </div>
+          <div class="button_section"> <a class="main_bt2" href="https://creditapp.bmwusa.com/">GET STARTED</a>  </div>
           </div>
         </div>
         <div class="column-5">
@@ -250,7 +250,7 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
           <div class="exp2">
             <h1>Stay Connected</h1>
           <p>Receive the latest offers, releases, and news from BMW./p>
-            <div class="button_section"> <a class="main_bt1" href="https://www.bmwusa.com/keep-me-updated.html">SIGN UP NOW</a>  </div>
+            <div class="button_section"> <a class="main_bt2" href="https://www.bmwusa.com/keep-me-updated.html">SIGN UP NOW</a>  </div>
           </div>
         </div>
   </div>

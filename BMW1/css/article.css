@@ -1,0 +1,115 @@
+button.btn.btn-dark.mb-2 {
+    margin-top: 100px;
+}
+
+.btn-dark {
+    color: #f909ece6;
+    background-color: #b3018cf7;
+    border-color: #b3018cf7;
+}
+a{
+  color:white;
+}
+.footer {
+    background: url(../images/banner123.png);
+    padding-bottom: 35px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: -33px;
+}
+.display-3 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: white;
+        text-align: center;
+}
+.h3, h3 {
+    font-size: 1.75rem;
+    color: white;
+    text-align: center;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+}
+em {
+    color: white;
+
+}.font-weight-light {
+    font-weight: 300!important;
+    text-align: center;
+}
+.btn-outline-dark {
+    color: #ffffff;
+    background-color: #000000c9;
+    background-image: none;
+    border-color: #000000;
+}
+.btn-outline-dark:hover {
+    color: #fffafa;
+    background-color: #ff00d4c9;
+    background-image: none;
+    border-color: #ff00d4c9;
+}
+.btn-outline-success {
+    color: #ffffff;
+    background-color: #000000c9;
+    background-image: none;
+    border-color: #000000;
+}
+.btn-outline-success:hover {
+    color: #fffafa;
+    background-color: #ff00d4c9;
+    background-image: none;
+    border-color: #ff00d4c9;
+}
+.btn-outline-danger {
+    color: #ffffff;
+    background-color: #000000c9;
+    background-image: none;
+    border-color: #000000;
+}
+.btn-outline-danger:hover {
+    color: #fffafa;
+    background-color: #ff00d4c9;
+    background-image: none;
+    border-color: #ff00d4c9;
+}
+.row1 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 140px;
+}
+.btn-dark {
+    color: #ffffff;;
+    background-color: #000000c9;
+    border-color:#000000;
+        margin-left: -100px;
+}
+.btn-dark:hover{
+    color: #fffafa;
+    background-color: #ff00d4c9;
+    background-image: none;
+    border-color: #ff00d4c9;
+}
+.footer .Subscribe {
+    padding: 10px 46px;
+    margin-left: -3px;
+    border: #000000 solid 1px;
+    background: #0e0c0c;
+    color: #fff;
+}
+.footer .Subscribe:hover {
+    padding: 10px 46px;
+    margin-left: -3px;
+    border: #ff00d4c9 solid 1px;
+    background: #ff00d4c9;
+    color: #fffafa;
+}
