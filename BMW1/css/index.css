@@ -1,0 +1,37 @@
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -408px;
+    margin-left: -408px;
+}
+img {
+    margin-top: 10px;
+}
+h4 {
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: x-large;
+}
+a.title {
+    color: white;
+    font-size: x-large;
+    font-family: 'Lobster Two', cursive;
+}
+p.text-center {
+    font-size: larger;
+    color: white;
+    font-family: 'Economica', sans-serif;
+}
+.black {
+    color: #1b0018bd;
+    margin-left: 10px;
+}
+.display-4 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: #b32137;
+    font-family: 'Ultra', serif;
+    font-weight: bold;
+}

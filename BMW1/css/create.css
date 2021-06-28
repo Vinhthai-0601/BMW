@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+h2{
+  margin-top: 100px;
+  color: ##000000;
+
+}
+h1{
+  color:#F7347A;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('../images/lb1.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 400px;
+    min-height: 400px;
+    background: #f9dbf7;;
+    border-radius: 5px;
+    box-shadow: 0 0 100px rgb(224 33 138);
+    padding: 40px 30px;
+    margin:200px
+}
+
+.container .login-text {
+    color: #F7347A;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+    text-transform: capitalize;
+}
+
+.container .login-social {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    margin-bottom: 25px;
+}
+
+.container .login-social a {
+    padding: 12px;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    color: #FFF;
+    transition: .3s;
+}
+
+.container .login-social a i {
+    margin-right: 5px;
+}
+
+.container .login-social a.facebook {
+    background: #F7347A;
+}
+
+.container .login-social a.twitter {
+    background: #1DA1F2;
+}
+
+.container .login-social a.google-plus {
+    background: #db4a39;
+}
+
+.container .login-social a.linkedin {
+    background: #0e76a8;
+}
+
+.container .login-social a.facebook:hover {
+    background: #3d5fa3;
+}
+
+.container .login-social a.twitter:hover {
+    background: #1991db;
+}
+
+.container .login-social a.google-plus:hover {
+    background: #ca4334;
+}
+
+.container .login-social a.linkedin:hover {
+    background: #0b5c81;
+}
+
+.container .login-email .input-group {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+.container .login-email .input-group input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #F7347A;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: transparent;
+    outline: none;
+    transition: .3s;
+}
+
+.container .login-email .input-group input:focus, .container .login-email .input-group input:valid {
+    border-color: #a29bfe;
+}
+
+.container .login-email .input-group .btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
+    border: none;
+    background: #F7347A;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.container .login-email .input-group .btn:hover {
+    transform: translateY(-5px);
+    background: #6c5ce7;
+}
+
+.login-register-text {
+    color: #ffadca;
+    font-weight: 600;
+}
+
+.login-register-text a {
+    text-decoration: none;
+    color: #F7347A;
+}
+
+@media (max-width: 430px) {
+    .container {
+        width: 300px;
+    }
+    .container .login-social {
+        display: block;
+    }
+    .container .login-social a {
+        display: block;
+    }
+}
+social_footer_ul { display:table; margin:15px auto 0 auto; list-style-type:none;  }
+.social_footer_ul{margin-left:45px;color:white;}
+.social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
+.social_footer_ul li a { color:#F7347A; border:1px solid #F7347A; padding:8px;border-radius:50%;}
+.social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+label {
+    display: inline-block;
+
+    font-family: 'Lobster', cursive;
+    font-size: xx-large;
+    color: deeppink;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem !important;
+    color: hotpink;
+}
+button.btn.btn-lg.btn-dark.mt-3 {
+    color: deeppink;
+    background: white;
+    border: pink;
+}
+h5, .h5 {
+    font-size: 4.25rem;
+    margin-bottom: 100px;
+    font-family: 'Kaushan Script', cursive;
+    color: #E0218A;
+}
+a {
+    color: #710066;
+    text-decoration: none;
+    background-color: #391e1e00;
+}
