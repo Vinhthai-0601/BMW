@@ -48,7 +48,12 @@
      margin: 0
 }
  h1 {
-     font-size: 24px
+     font-size: 20px
+     
+}
+h1:hover {
+    color:black;
+    font-size: 40px;
 }
  h2 {
      font-size: 22px
@@ -1895,4 +1900,12 @@ input[type=text] {
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
   width: 100%;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -200px;
+    margin-left: -200px;
 }

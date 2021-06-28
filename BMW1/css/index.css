@@ -1,4 +1,4 @@
-.row {
+.row1 {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -7,7 +7,8 @@
     margin-left: -408px;
 }
 img {
-    margin-top: 10px;
+    margin-top: 0px;
+
 }
 h4 {
     color: white;
@@ -34,4 +35,30 @@ p.text-center {
     color: #b32137;
     font-family: 'Ultra', serif;
     font-weight: bold;
+}
+.col-md-6 {
+    margin-bottom: 12px;
+}
+a.title:hover {
+    color: #eb1677;
+    font-size: 40px;
+}
+.display-4 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: #b32137;
+    font-family: 'Ultra', serif;
+    font-weight: bold;
+    text-align: center;
+}
+.main_bt1 {
+    background: transparent;
+    color: #fff;
+    padding: 0px 26px 1px 32px;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    border: solid #fff 2px;
+    border-radius: 32px;
+    margin: 5px 11px 20px 600px;
 }

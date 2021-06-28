@@ -8,16 +8,7 @@ $sql = "SELECT * FROM posts";
 $results = $conn->query($sql);
 $rows = $results->fetch_all(MYSQLI_ASSOC);
  ?>      <!-- end header -->
-   <link rel="stylesheet" href="css/index.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&family=Satisfy&display=swap" rel="stylesheet">
-<<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Economica:wght@700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/index.css">
       <section class="slider_section">
          <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <div class="carousel-inner">
@@ -27,7 +18,7 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
                      <div class="carousel-caption relative">
                         <h1>The iX<br>New Generation Electric</h1>
 
-                        <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/future-vehicles/ix.html">See More</a>  </div>
+                        <div class="button_section"> <a class="main_bt1" href="https://www.bmwusa.com/future-vehicles/ix.html">See More</a>  </div>
                      </div>
                   </div>
                </div>
@@ -36,7 +27,7 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
                   <div class="container">
                      <div class="carousel-caption relative">
                         <h1>The M5 CS<br> DISCOVER THE FASTEST<br>STREET-LEGAL BMW EVER</h1>
-                        <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/future-vehicles/m5-cs-sedan.html">See More</a>  </div>
+                        <div class="button_section"> <a class="main_bt1" href="https://www.bmwusa.com/future-vehicles/m5-cs-sedan.html">See More</a>  </div>
                      </div>
                   </div>
                </div>
@@ -46,8 +37,8 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
                      <div class="carousel-caption relative">
                         <h1>SHOP FROM ANYWHERE<br> </h1>
                         <p>With BMW's online shopping tools, buying your dream car is as easy as browsing </p>
-                        <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/buy-online.html">See More</a>  </div>
-                        <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/inventory.html#!/results/">Car Forum</a>  </div>
+                        <div class="button_section"> <a class="main_bt1" href="https://www.bmwusa.com/buy-online.html">See More</a>  </div>
+                        <div class="button_section"> <a class="main_bt1" href="https://www.bmwusa.com/inventory.html#!/results/">Car Forum</a>  </div>
 
                      </div>
                   </div>
@@ -65,9 +56,9 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
       </section>
 
       <div class="container post">
-        <h2 class="display-4">Posts<strong class="black">your CAR here! </strong></h2>
+        <h2 class="display-4">Posts<strong class="black">Your Favorite Car! </strong></h2>
         <hr>
-        <div class="row">
+        <div class="row1">
           <?php
           $posts = getPosts(12, $conn);
            echo outputPosts($posts);
@@ -76,7 +67,17 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
       </div>
 
 
-
+        <!-- // <div class='row'>
+        //   <div class='col-md-4 mb-2'>
+        //     <button type='button' name='' class='btn btn-lg btn-outline-dark mt-3'><i class='far fa-edit mr-2'></i> <a href='edit.php?id={$post['ID']}'>Edit Post</a> </button>
+        //     </div>
+        //     <div class='col-md-4 mb-2'>
+        //     <button type='button' name='' class='btn btn-lg btn-outline-success mt-3'><i class='far fa-comments mr-2'></i> <a href='cmt.php?id={$post['ID']}'>Comment</a> </button>
+        //     </div>
+        //     <div class='col-md-4 mb-2'>
+        //     <button type='button' name='' class='btn btn-lg btn-outline-danger mt-3'><i class='far fa-trash-alt mr-2'></i> <a href='delete.php?id={$post['ID']}'>Delete</a> </button>
+        //     </div>
+        // </div> -->
 
         <!-- <div class="front-2">
           <div class="column-2">
@@ -135,28 +136,28 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
       <div class="column-4">
         <img src="images/car7.jpg" alt="">
         <div class="exp1">
-          <h10>3 SERIES SEDAN</h10>
+          <h10>LAMBORGHINI AVENTADOR SVJ</h10>
           <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/build-your-own.html#/series/3/sedan">START DESIGNING</a>  </div>
         </div>
       </div>
       <div class="column-4">
         <img src="images/car8.jpg" alt="">
         <div class="exp1">
-          <h10>X3</h10>
+          <h10>HURACAN WIND OF THE CAR</h10>
           <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/build-your-own.html#/series/X3/sports-activity-vehicle">START DESIGNING</a>  </div>
       </div>
       </div>
       <div class="column-4">
         <img src="images/car9.jpg" alt="">
         <div class="exp1">
-          <h10>5 SERIES BMW</h10>
+          <h10>KAWASAKI THE KING OF SPEED</h10>
         <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/build-your-own.html#/series/5/sedan">START DESIGNING</a>  </div>
         </div>
       </div>
       <div class="column-4">
         <img src="images/car10.jpg" alt="">
         <div class="exp1">
-          <h10>X5</h10>
+          <h10>BMW THE MOST BEAUTIFUL CAR</h10>
           <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/build-your-own.html#/series/X5/sports-activity-vehicle">START DESIGNING</a>  </div>
         </div>
       </div>
