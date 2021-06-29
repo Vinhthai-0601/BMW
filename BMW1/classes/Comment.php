@@ -25,6 +25,7 @@ class Comment {
     if($stmt->affected_rows == 1) {
       $this->insert_id = $stmt->insert_id;
       $this->getComment();
+      $location = "Location:  article.php?id=" . $this->post_id . "&new=true";
     } else {
       var_dump($stmt);
     }
