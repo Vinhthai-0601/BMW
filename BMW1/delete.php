@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 include 'classes/post.php';
-var_dump($_GET);
+
 if (isset($_GET['delete']))
  {
   $post = new Post($_GET['delete'], $conn);
@@ -29,10 +29,17 @@ if(isset($_GET['id'])) {
   $errorMsg = "Post not found!";
 }
 ?>
-
+  <link rel="stylesheet" href="css/delete.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back to home page</a></button><br>
+    <button type="button" class="btn btn-dark mb-2"><h7 href='index.php'>< Back to home page</h7></button><br>
     <?php if (isset($row)): ?>
       <img src="<?php echo $img; ?> " style='max-width:100%'>
       <h1 class="display-3"><?php echo $title; ?></h1>
@@ -45,17 +52,6 @@ if(isset($_GET['id'])) {
     <?php endif; ?>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <?php
 include 'includes/footer.php';
 ?>

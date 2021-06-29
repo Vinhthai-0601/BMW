@@ -38,16 +38,20 @@ if(isset($_GET['id'])) {
 }
 
  </style>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
    <link rel="stylesheet" href="css/article.css">
       <div class="jumbotron jumbotron-fluid article">
         <div class="container">
           <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back</a></button><br>
           <?php if (isset($row)): ?>
             <img src="<?php echo $img; ?> " style='max-width:100%'>
-            <h1 class="display-3"><?php echo $title; ?></h1>
+            <h5 class="display-3"><?php echo $title; ?></h5>
             <h3>Author:  <?php echo $author; ?></h3>
             <p>Content: <?php echo $body ?></p>
-            <h5 class="font-weight-light"><em><?php echo date_format($date,"Y/m/d"); ?> </em></h5>
+            <h6 class="font-weight-light"><em><?php echo date_format($date,"Y/m/d"); ?> </em></h6>
             <div class='row1'>
               <div class='col-md-4 mb-2'>
                 <button type='button' name='' class='btn btn-lg btn-outline-dark mt-3'><i class='far fa-edit mr-2'></i> <a href='edit.php?id=<?php echo $_GET['id']?>'>Edit Post</a> </button>

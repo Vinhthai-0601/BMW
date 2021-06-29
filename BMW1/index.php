@@ -182,7 +182,7 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
           <div class="exp2">
             <h1>Check Your Credit Score</h1>
           <p>See where you stand on your journey to owning a BMW..</p>
-            <div class="button_section"> <a class="main_bt2" href="https://www.intelliprice.com/intellipricedealer/start.htm?dealerID=9541001">VISI EQUIFAX</a>  </div>
+            <div class="button_section"> <a class="main_bt2" href="https://www.intelliprice.com/intellipricedealer/start.htm?dealerID=9541001">VISIT EQUIFAX</a>  </div>
         </div>
         </div>
         <div class="column-5">

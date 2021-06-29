@@ -1,0 +1,37 @@
+body.main-layout {
+    margin-top: 176px;
+    background: url(https://wallpaperaccess.com/full/1301538.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a {
+    color: hotpink;
+}
+a:hover {
+    color: white;
+    font-size:20px;
+    text-decoration-line: underline;
+}
+footer nav ul {
+    margin-top: 700px;
+}
+button.btn.btn-dark.mb-2 {
+  color: #000000;
+  background-color: #ffffff;
+  background-image: none;
+  border-color: #000000;
+}
+button.btn.btn-dark.mb-2:hover {
+    color: #fffafa;
+    background-color: #ff00d4c9;
+    background-image: none;
+    border-color: #ff00d4c9;
+}
+.h3, h3 {
+    font-size: 4.75rem;
+
+    font-family: 'Playball', cursive;
+}
+h3{
+   color:#d60090e0;
+  }

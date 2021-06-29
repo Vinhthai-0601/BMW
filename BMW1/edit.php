@@ -31,7 +31,14 @@ if(isset($_GET['id']) && $_SESSION['loggedin'] == true){
   $errorMsg = "Post not found or you not the author so you can't edit !!!";
 }
  ?>
-
+<link rel="stylesheet" href="css/edit.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
  <div class="container">
    <div class="row">
      <?php if ($_SESSION['loggedin'] == false): ?>
@@ -44,7 +51,7 @@ if(isset($_GET['id']) && $_SESSION['loggedin'] == true){
        </div>
      <?php elseif (!empty($errors)):?>
        <div class="container">
-         <h3 style="color:red; font-style:italic;"><?php echo $errors['Author']; ?></h3>
+         <h3 style="color:#d60090e0; font-style:italic;"><?php echo $errors['Author']; ?></h3>
          <hr>
          <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back to home page</a></button><br>
        </div>

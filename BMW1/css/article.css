@@ -24,11 +24,13 @@ a{
     line-height: 1.2;
     color: white;
         text-align: center;
+
 }
 .h3, h3 {
     font-size: 1.75rem;
     color: white;
     text-align: center;
+
 }
 p {
     margin-top: 0;
@@ -38,11 +40,13 @@ p {
 }
 em {
     color: white;
-
-}.font-weight-light {
+}
+.font-weight-light {
     font-weight: 300!important;
     text-align: center;
+
 }
+
 .btn-outline-dark {
     color: #ffffff;
     background-color: #000000c9;
