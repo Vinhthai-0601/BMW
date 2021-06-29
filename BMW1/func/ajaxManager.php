@@ -6,9 +6,11 @@ if(isset($_POST['comment'])) {
   $comment_text = $_POST['comment'];
   $comment = new Comment($theid, $conn);
   $comment->createComment($comment_text);
+  echo json_encode($comment->comment);
 }
 
 if(isset($_POST['delete-comment'])){
+  var_dump($_POST['comment_id']);
   $comment_id = $_POST['comment_id'];
   $post_id = $_SESSION['query_history'];
   $comment = new Comment($theid, $conn);

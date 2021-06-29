@@ -27,5 +27,6 @@
 <!-- sidebar -->
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>

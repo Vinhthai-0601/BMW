@@ -10,7 +10,6 @@ class Comment {
   public $comment;
   public $comments = [];
   public $conn;
-
   // constructor function
   public function __construct($post_id, $conn) {
     $this->post_id = $post_id;
@@ -19,7 +18,7 @@ class Comment {
 
   public function createComment($comment) {
     $this->comment_text = $comment;
-    $sql = "INSERT INTO comments (comment, comment_author, comment_post) VALUES (?,?,?)";
+    $sql = "INSERT INTO comments (comment_text, comment_user, comment_post) VALUES (?,?,?)";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("sii", $this->comment_text, $_SESSION['user_id'], $this->post_id);
     $stmt->execute();
@@ -33,7 +32,7 @@ class Comment {
 
   // Comment methods : CRUD etc
   public function getComments() {
-    $sql = "SELECT cm.ID, cm.comment, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_author WHERE cm.comment_post = ?";
+    $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.comment_post = ?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $this->post_id);
     $stmt->execute();
@@ -42,7 +41,7 @@ class Comment {
   }
 
   public function getComment() {
-    $sql = "SELECT cm.ID, cm.comment, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_author WHERE cm.ID = ?";
+    $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.comment_post = ?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $this->insert_id);
     $stmt->execute();
@@ -53,9 +52,9 @@ class Comment {
 
 
   public function outputComments() {
-    $output = '';
+    $output = "";
     foreach ($this->comments as $comment) {
-      $output .= "<div class='card mt-2 mb-2'><div class='card-header'> {$comment['Name']} | {$comment['date_created']} <a href='func/commentmanager.php?id={$comment['ID']}'><button type='button' class='btn delete-post btn-outline-danger btn-sm  float-right'>X</button></a></div><div class='card-body'><p class='card-text'>{$comment['comment']} </p></div></div>";
+      $output .= "<div class='card mt-2 mb-2'><div class='card-header'> {$comment['username']} | {$comment['date_created']} <a href='func/commentmanager.php?id={$comment['ID']}'><button class='btn btn-outline-danger btn-sm  float-right delete-post'>X</button></a></div><div class='card-body'><p class='card-text'>{$comment['comment_text']} </p></div></div>";
     }
     echo $output;
   }

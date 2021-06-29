@@ -21,7 +21,7 @@ if(isset($_GET['id'])) {
        <div class="col-md-8 offset-md-2">
           <img src="<?php echo $post['Image']; ?>" class="img-fluid" alt="">
           <h2 class="font-weight-light mt-4"><?php echo htmlspecialchars($post['Title']); ?></h2>
-           <p><?php echo htmlspecialchars($post['Content']); ?></p>
+          <p><?php echo htmlspecialchars($post['Content']); ?></p>
           <h5><em><?php echo htmlspecialchars($post['Date_time']); ?>
           </em></h5>
        </div>
