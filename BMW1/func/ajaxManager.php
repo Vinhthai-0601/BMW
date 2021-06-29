@@ -1,10 +1,10 @@
 <?php
 include '../classes/Comment.php';
 include '../config.php';
-if(isset($_POST['comment'])) {
-  $theid = $_POST['post_id'];
-  $comment_text = $_POST['comment'];
-  $comment = new Comment($theid, $conn);
+if(isset($_POST['comment-submit'])) {
+  $post_id = $_GET['id'];
+  $comment_text = $_POST['comment-text'];
+  $comment = new Comment($post_id, $conn);
   $comment->createComment($comment_text);
 }
 

@@ -66,58 +66,6 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
         </div>
       </div>
 
-
-        <!-- // <div class='row'>
-        //   <div class='col-md-4 mb-2'>
-        //     <button type='button' name='' class='btn btn-lg btn-outline-dark mt-3'><i class='far fa-edit mr-2'></i> <a href='edit.php?id={$post['ID']}'>Edit Post</a> </button>
-        //     </div>
-        //     <div class='col-md-4 mb-2'>
-        //     <button type='button' name='' class='btn btn-lg btn-outline-success mt-3'><i class='far fa-comments mr-2'></i> <a href='cmt.php?id={$post['ID']}'>Comment</a> </button>
-        //     </div>
-        //     <div class='col-md-4 mb-2'>
-        //     <button type='button' name='' class='btn btn-lg btn-outline-danger mt-3'><i class='far fa-trash-alt mr-2'></i> <a href='delete.php?id={$post['ID']}'>Delete</a> </button>
-        //     </div>
-        // </div> -->
-
-        <!-- <div class="front-2">
-          <div class="column-2">
-            <img src="images/car3.jpg" alt="">
-            <div class="text-block10">
-            <h10> The 2021 BMW X7</h10>
-            <p10> EXPERIENCE A LEGEND </p10>
-            <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/vehicles/x-models/x7/sports-activity-vehicle/overview.html">See More</a>  </div>
-            </div>
-          </div>
-          <div class="column-2">
-            <img src="images/car2.png" alt="">
-            <div class="text-block10">
-            <h10> The 2021 BMW X5</h10>
-            <p10> LEAD WITH CONFIDENCE </p10>
-            <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/vehicles/x-models/x5/sports-activity-vehicle/overview.html">See More</a>  </div>
-          </div>
-          </div>
-        </div>
-        <div class="front-3">
-          <div class="column-3">
-            <img src="images/car4.jpg" alt="">
-            <div class="text-block10">
-            <h10> The 2021 BMW i7</h10>
-            <p10> THE FASTEST CAR OF THE WORLD </p10>
-            <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/vehicles/5-series/sedan/overview.html">See More</a>  </div>
-            </div>
-          </div>
-          <div class="column-3">
-            <img src="images/car5.jpg" alt="">
-            <div class="text-block10">
-            <h10> The 2021 BMW i7</h10>
-            <p10> LEAD WITH CONFIDENCE </p10>
-            <div class="button_section"> <a class="main_bt" href="https://www.bmwusa.com/vehicles/8-series/overview.html">See More</a>  </div>
-          </div>
-          </div>
-        </div> -->
-
-
-
       <!-- Library -->
       <div class="Library">
          <div class="container">
