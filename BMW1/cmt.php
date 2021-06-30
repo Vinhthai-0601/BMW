@@ -41,7 +41,7 @@ if(isset($_GET['id'])) {
      <div class="row comments">
        <div class="col-md-8 form">
          <?php if ($_SESSION['loggedin']): ?>
-           <form class="comment-form" method="POST" action="func/ajaxManager.php?comment=true&id=<?php echo htmlspecialchars($_GET['id']);?>">
+           <form class="comment-form" method="POST" action="func/ajaxManager.php">
              <textarea name="comment-text" class="form-control" rows="4" cols="80"></textarea>
              <input type="hidden" name="id" value="id=<?php echo htmlspecialchars($_GET['id']); ?>">
              <button type="submit" name="comment-submit" class="btn btn-outline-success mt-2"><i class="far fa-comment"></i>Add Comment</button>

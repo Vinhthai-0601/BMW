@@ -12,9 +12,13 @@ let commentcard = document.querySelectorAll(".card");
 
 theform.addEventListener("submit", function(event) {
   event.preventDefault();
-  let theaction = theform.getAttribute("action")
-  let postid = hiddeninput.value.split("=");
-  commentAjax(thecomment.value, postid[1], theaction);
+  let querystring = hiddeninput.value;
+  let postid = querystring.split("=");
+  let comment = thecomment.value;
+  let theaction = "func/ajaxManager.php";
+  console.log(comment);
+  console.log(postid);
+  commentAjax(comment, postid[1], theaction);
   theform.reset();
 })
 
@@ -41,7 +45,6 @@ commentcard.forEach((card, i) => {
 // ajax request
 
 function commentAjax(comment, postid, theaction) {
-
   let xhr = new XMLHttpRequest();
   xhr.open("POST", theaction, true);
   // to use the post method we must set the request headers
@@ -49,20 +52,19 @@ function commentAjax(comment, postid, theaction) {
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.onload = function() {
     if(this.status == 200) {
+      console.log(this);
       console.log(this.responseText);
-      let output = JSON.parse(this.responseText);
-      console.log(output);
-      outputNewComment(output);
+      console.log(JSON.parse(this.responseText));
+      outputNewComment(JSON.parse(this.responseText));
     }
   }
-
   xhr.send("comment="+comment+"&post_id="+postid);
 }
 
 // General function
 function outputNewComment(output) {
-  let theoutput = `<div class="col-md-7 mt-2 mb-2"><div class="card"><div class="card-header">${output.Name} | ${output.date_created}</div>
-  <div class="card-body"><p class="card-text">${output.comment}</p>
+  let theoutput = `<div class="col-md-7 mt-2 mb-2"><div class="card"><div class="card-header">${output.username} | ${output.date_created}</div>
+  <div class="card-body"><p class="card-text">${output.comment_text}</p>
   </div></div></div>`;
   theform.insertAdjacentHTML("afterend", theoutput);
 }

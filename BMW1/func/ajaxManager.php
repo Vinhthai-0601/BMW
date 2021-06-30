@@ -1,12 +1,12 @@
 <?php
 include '../classes/Comment.php';
 include '../config.php';
-if(isset($_POST['comment-submit'])) {
-  $post_id = $_GET['id'];
-  $comment_text = $_POST['comment-text'];
+if(isset($_POST['comment'])) {
+  $post_id = $_POST['post_id'];
+  $comment_text = $_POST['comment'];
   $comment = new Comment($post_id, $conn);
   $comment->createComment($comment_text);
-  echo json_encode($comment->comment);
+  // echo json_encode($comment);
 }
 
 if(isset($_POST['delete-comment'])){

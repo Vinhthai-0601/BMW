@@ -24,10 +24,8 @@ class Comment {
     $stmt->execute();
     if($stmt->affected_rows == 1) {
       $this->insert_id = $stmt->insert_id;
+      // this will return the comment as a json encoded string
       $this->getComment();
-      $location = "Location:  article.php?id=" . $this->post_id . "&new=true";
-    } else {
-      var_dump($stmt);
     }
   }
 
