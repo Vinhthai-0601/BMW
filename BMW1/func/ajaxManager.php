@@ -10,10 +10,10 @@ if(isset($_POST['comment'])) {
 }
 
 if(isset($_POST['delete-comment'])){
-  var_dump($_POST['comment_id']);
   $comment_id = $_POST['comment_id'];
   $post_id = $_SESSION['query_history'];
-  $comment = new Comment($theid, $conn);
+  echo json_encode($comment);
+  $comment = new Comment($comment_id, $conn);
   $comment->deleteComment($comment_id);
 }
  ?>

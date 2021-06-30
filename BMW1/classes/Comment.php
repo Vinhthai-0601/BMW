@@ -45,6 +45,7 @@ class Comment {
     $stmt->bind_param("i", $this->insert_id);
     $stmt->execute();
     $result = $stmt->get_result();
+    echo json_encode($result);
     echo json_encode($result->fetch_assoc());
 }
 
@@ -53,17 +54,37 @@ class Comment {
   public function outputComments() {
     $output = "";
     foreach ($this->comments as $comment) {
-      $output .= "<div class='card mt-2 mb-2'><div class='card-header'> {$comment['username']} | {$comment['date_created']} <a href='func/commentmanager.php?id={$comment['ID']}'><button class='btn btn-outline-danger btn-sm  float-right delete-post'>X</button></a></div><div class='card-body'><p class='card-text'>{$comment['comment_text']} </p></div></div>";
+      $output .= "<div class='card mt-2 mb-2 comment-wrapper grow'>
+        <div class='card-header'>
+          {$comment['username']} | {$comment['date_created']}
+          <a href='func/commentmanager.php?id={$comment['ID']}'>
+          <button class='btn btn-outline-danger btn-sm  float-right delete-post' comment-id={$comment['ID']} >X</button></a></div>
+          <div class='card-body'>
+            <p class='card-text comment-p'>{$comment['comment_text']} </p>
+          </div>
+      </div>";
     }
     echo $output;
   }
 
-  function deleteComment($id) {
-    $sql = "DELETE FROM comments WHERE ID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    echo $stmt->affected_rows;
+  public function deleteComment($comment_id) {
+    $this->comment_id = $comment_id;
+    $this->getComment();
+    $_SESSION['comment'] = $this->comment;
+    if($this->comment['comment_user'] == $_SESSION['user_id'] || $_SESSION['user_role'] == 1) {
+      $this->comment_id = $comment_id;
+      $sql = "DELETE FROM comments WHERE ID = ?";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bind_param("i", $this->comment_id);
+      $stmt->execute();
+      if($stmt->affected_rows == 1) {
+        echo true;
+      } else {
+        echo false;
+      }
+    } else {
+      echo false;
+    }
   }
 
 
