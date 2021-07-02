@@ -14,6 +14,8 @@ if (isset($_POST['submit'])) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $row['username'];
     $_SESSION['user_id'] = $row['id'];
+		$_SESSION['user_role'] = $row['role'];
+		// var_dump($row);
     $location = "Location:  index.php?id=" . $stmt->insert_id . "&new=true";
     header($location);
 	} else {

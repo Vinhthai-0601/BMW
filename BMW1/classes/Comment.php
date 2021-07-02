@@ -7,9 +7,10 @@ class Comment {
   public $comment_user_id;
   public $post_id;
   public $comment_id;
-  public $comment;
+  public $comment = [];
   public $comments = [];
   public $conn;
+
   // constructor function
   public function __construct($post_id, $conn) {
     $this->post_id = $post_id;
@@ -40,7 +41,7 @@ class Comment {
   }
 
   public function getComment() {
-    $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.comment_post = ?";
+    $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $this->insert_id);
     $stmt->execute();
@@ -51,22 +52,48 @@ class Comment {
 
 
   public function outputComments() {
-    $output = "";
+    $output = '';
     foreach ($this->comments as $comment) {
-      $output .= "<div class='card mt-2 mb-2'><div class='card-header'> {$comment['username']} | {$comment['date_created']} <a href='func/commentmanager.php?id={$comment['ID']}'><button class='btn btn-outline-danger btn-sm  float-right delete-post'>X</button></a></div><div class='card-body'><p class='card-text'>{$comment['comment_text']} </p></div></div>";
+      $output .= "<div class='card mt-2 mb-2 comment-wrapper grow'>
+        <div class='card-header'>
+          {$comment['username']} | {$comment['date_created']}
+          <a href='func/commentmanager.php?id={$comment['ID']}'>
+          <button class='btn btn-outline-danger btn-sm  float-right delete-post' comment-id={$comment['ID']} >X</button>
+          </a>
+        </div>
+          <div class='card-body'>
+            <p class='card-text comment-p'>{$comment['comment_text']} </p>
+          </div>
+      </div>";
     }
     echo $output;
   }
 
-  function deleteComment($id) {
-    $sql = "DELETE FROM comments WHERE ID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    echo $stmt->affected_rows;
+public function getCommentID($comment_id){
+  $sql = "SELECT * FROM comments WHERE ID = ?";
+  $stmt = $this->conn->prepare($sql);
+  $stmt->bind_param("i", $comment_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $this->comment = $result->fetch_assoc();
+}
+
+  public function deleteComment($comment_id) {
+    $this->getCommentID($comment_id);
+    if($this->comment['comment_user'] == $_SESSION['user_id'] || $_SESSION['user_role'] == 1) {
+      $sql = "DELETE FROM comments WHERE ID = ?";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bind_param("i", $this->comment['ID']);
+      $stmt->execute();
+      if($stmt->affected_rows == 1) {
+        echo json_encode(true);
+      } else {
+        echo json_encode(false);
+      }
+    } else {
+      echo json_encode(false);
+    }
   }
-
-
 }
 
  ?>
