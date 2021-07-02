@@ -74,7 +74,7 @@ function outputNewComment(output) {
 
 function deleteCommentAjax(comment_id, parent_card) {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "func/ajaxmanager.php", true);
+  xhr.open("POST","func/ajaxManager.php", true);
   // to use the post method we must set the request headers
   // depending on the form data being sent
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -92,12 +92,11 @@ function deleteCommentAjax(comment_id, parent_card) {
           notification("Comment successfully removed!", "success", "fas fa-check-circle");
         },400);
       } else {
-        notification("Could not remove this comment!", "danger", "fas fa-times");
+        notification("Could not remove this comment because you not the comment user or admin!", "danger", "fas fa-times");
       }
     }
+    xhr.send("delete-comment=true&comment_id="+comment_id);
   }
-  xhr.send("delete-comment=true&comment_id="+comment_id);
-}
 
 function notification(msg, msgClass, icon = "") {
   let overlay = document.createElement("div");
