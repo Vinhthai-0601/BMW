@@ -46,6 +46,7 @@ class Comment {
     $stmt->bind_param("i", $this->insert_id);
     $stmt->execute();
     $result = $stmt->get_result();
+    echo json_encode($result);
     echo json_encode($result->fetch_assoc());
 }
 
@@ -58,9 +59,7 @@ class Comment {
         <div class='card-header'>
           {$comment['username']} | {$comment['date_created']}
           <a href='func/commentmanager.php?id={$comment['ID']}'>
-          <button class='btn btn-outline-danger btn-sm  float-right delete-post' comment-id={$comment['ID']} >X</button>
-          </a>
-        </div>
+          <button class='btn btn-outline-danger btn-sm  float-right delete-post' comment-id={$comment['ID']} >X</button></a></div>
           <div class='card-body'>
             <p class='card-text comment-p'>{$comment['comment_text']} </p>
           </div>
