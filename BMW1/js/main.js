@@ -27,16 +27,16 @@ commentcard.forEach((card, i) => {
     e.preventDefault();
     console.log("click");
     if(e.target.classList.contains("delete-post")){
-      console.log("delete");
-      let par = e.target.parentNode.parentNode.parentNode;
-      console.log(par);
-      par.classList.add("shrinkStart");
-      setTimeout(function(){
-        par.classList.add("shrinkFinish");
-      },100);
+      let comment_target = e.target;
+      let comment_id = e.target.getAttribute("comment-id");
+      console.log("delete:" + comment_id);
+      let par = e.target.closest(".comment-wrapper");
+      deleteCommentAjax(comment_id, par);
+      // par.classList.add("shrinkStart");
+      // setTimeout(function(){
+      //   par.classList.add("shrinkFinish");
+      // },100);
     }
-
-    console.log(e);
   })
 
 });
@@ -52,9 +52,7 @@ function commentAjax(comment, postid, theaction) {
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.onload = function() {
     if(this.status == 200) {
-      console.log(this);
       console.log(this.responseText);
-      console.log(JSON.parse(this.responseText));
       outputNewComment(JSON.parse(this.responseText));
     }
   }
@@ -63,21 +61,26 @@ function commentAjax(comment, postid, theaction) {
 
 // General function
 function outputNewComment(output) {
-  let theoutput = `<div class="col-md-7 mt-2 mb-2"><div class="card"><div class="card-header">${output.username} | ${output.date_created}</div>
-  <div class="card-body"><p class="card-text">${output.comment_text}</p>
-  </div></div></div>`;
+  let theoutput = `<div class="col-md-7 mt-2 mb-2">
+    <div class="card">
+      <div class="card-header">${output.username} | ${output.date_created}</div>
+        <div class="card-body">
+          <p class="card-text">${output.comment_text}</p>
+        </div>
+      </div>
+    </div>`;
   theform.insertAdjacentHTML("afterend", theoutput);
 }
 
 function deleteCommentAjax(comment_id, parent_card) {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "func/ajaxmanager.php", true);
+  xhr.open("POST","func/ajaxManager.php", true);
   // to use the post method we must set the request headers
   // depending on the form data being sent
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.onload = function() {
     if(this.status == 200) {
-      if(this.responseText == true) {
+      console.log(this);
         parent_card.classList.add("shrinkStart");
         setTimeout(function(){
           parent_card.classList.add("shrinkFinish");
@@ -87,12 +90,11 @@ function deleteCommentAjax(comment_id, parent_card) {
           notification("Comment successfully removed!", "success", "fas fa-check-circle");
         },400);
       } else {
-        notification("Could not remove this comment!", "danger", "fas fa-times");
+        notification("Could not remove this comment because you not the comment user or admin!", "danger", "fas fa-times");
       }
     }
+    xhr.send("delete-comment=true&comment_id="+comment_id);
   }
-  xhr.send("delete-comment=true&comment_id="+comment_id);
-}
 
 function notification(msg, msgClass, icon = "") {
   let overlay = document.createElement("div");

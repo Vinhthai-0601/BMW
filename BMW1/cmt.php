@@ -3,6 +3,7 @@ include 'func/postmanager.php';
 include 'classes/Comment.php';
 include 'includes/header.php';
 
+
 if(isset($_GET['id'])) {
   $post = getPost($_GET['id'], $conn);
   $theid = $_GET['id'];
@@ -12,8 +13,8 @@ if(isset($_GET['id'])) {
 
  ?>
  <link rel="stylesheet" href="css/comment.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
@@ -66,6 +67,5 @@ if(isset($_GET['id'])) {
  $queryStrPos = strpos($_SESSION['query_history'][$queryIDCount],"id");
  $queryId = substr($_SESSION['query_history'][$queryIDCount],$queryStrPos);
  $queryId = explode("=", $queryId);
-
  include 'includes/footer.php';
   ?>

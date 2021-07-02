@@ -6,6 +6,9 @@
     height: auto;
     margin-left: -160px;
 }
+p.card-text.comment-p {
+    color: black !important;
+}
 body.main-layout {
     background: url(https://www.teahub.io/photos/full/316-3166337_lamborghini-huracan.jpg);
     background-repeat: no-repeat;
