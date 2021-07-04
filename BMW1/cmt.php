@@ -1,6 +1,7 @@
 <?php
 include 'func/postmanager.php';
 include 'classes/Comment.php';
+include 'classes/Reply.php';
 include 'includes/header.php';
 
 
@@ -9,7 +10,12 @@ if(isset($_GET['id'])) {
   $theid = $_GET['id'];
   $comments = new Comment($theid, $conn);
   $comments->getComments();
+<<<<<<< Updated upstream
   var_dump($comments);
+=======
+  $replies = new Reply($theid, $conn);
+  $replies->getReplies();
+>>>>>>> Stashed changes
 }
 
  ?>
@@ -40,23 +46,22 @@ if(isset($_GET['id'])) {
       <hr>
       <h3 class="display-4 mt-3 mb-3">Comments</h3>
       <hr>
+      <?php if ($_SESSION['loggedin']): ?>
+      <div class="row comment-form">
+        <div class="col-md-8 form">
+          <form class="comment-form" method="POST" action="func/ajaxManager.php">
+            <textarea name="comment-text" class="form-control" rows="4" cols="80"></textarea>
+            <input type="hidden" name="id" value="id=<?php echo htmlspecialchars($_GET['id']); ?>">
+            <button type="submit" name="comment-submit" class="comment-submit btn btn-outline-success mt-2"><i class="far fa-comment"></i>Add Comment</button>
+          </form>
+        </div>
+      </div>
      <div class="row comments">
-       <div class="col-md-8 form">
-         <?php if ($_SESSION['loggedin']): ?>
-           <form class="comment-form" method="POST" action="func/ajaxManager.php">
-             <textarea name="comment-text" class="form-control" rows="4" cols="80"></textarea>
-             <input type="hidden" name="id" value="id=<?php echo htmlspecialchars($_GET['id']); ?>">
-             <button type="submit" name="comment-submit" class="btn btn-outline-success mt-2"><i class="far fa-comment"></i>Add Comment</button>
-           </form>
-           <?php $comments->outputComments();?>
+           <?php $comments->outputComments($replies);?>
          <?php else: ?>
            <h3>Please login to comment!</h3>
            <a href="login.php"><button type="button" class="btn btn-primary btn-lg">Login</button></a>
          <?php endif; ?>
-
-       </div>
-
-
      </div>
    <?php endif; ?>
 

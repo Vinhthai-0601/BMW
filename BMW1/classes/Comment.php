@@ -32,7 +32,7 @@ class Comment {
 
   // Comment methods : CRUD etc
   public function getComments() {
-    $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.comment_post = ?";
+    $sql = "SELECT cm.ID AS CID, cm.comment_text, u.username, u.id AS UID, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.comment_post = ? AND cm.comment_parent IS NULL ORDER BY cm.date_created DESC";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $this->post_id);
     $stmt->execute();
@@ -41,7 +41,11 @@ class Comment {
   }
 
   public function getComment() {
+<<<<<<< Updated upstream
     $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
+=======
+    $sql = "SELECT cm.ID as comment_id, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
+>>>>>>> Stashed changes
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $this->insert_id);
     $stmt->execute();
@@ -52,6 +56,7 @@ class Comment {
 
 
 
+<<<<<<< Updated upstream
   public function outputComments() {
     $output = '';
     foreach ($this->comments as $comment) {
@@ -70,6 +75,34 @@ class Comment {
     echo $output;
   }
 
+=======
+  public function outputComments($replies) {
+    $output = "";
+    foreach ($this->comments as $comment) {
+    echo "<div class='comment-wrapper col-md-12'>
+      <div class='col-md-8 mt-2 mb-2 comment'>
+      <div class='card'>
+        <div class='card-header'>
+        <a href='user.php?id={$comment['UID']}' class='comment-user-id' data-comment-user-id='{$comment['UID']}'>
+          {$comment['username']}</a>| {$comment['date_created']}
+
+          <button class='btn btn-outline-danger btn-sm  float-right delete-post' data-comment-id={$comment['CID']} >X</button>
+
+           <button class='btn float-right btn-sm btn-outline-secondary mr-2 reply-comment' data-comment-id='{$comment['CID']}' data-comment-user-id='{$comment['UID']}'>reply</button>
+        </div>
+
+          <div class='card-body'>
+            <p class='card-text comment-p'>{$comment['comment_text']} </p>
+          </div>
+        </div>
+      </div> </div>";
+
+      $replies->outputReplies($comment['CID']);
+    }
+    echo "</div>";
+  }
+
+>>>>>>> Stashed changes
 public function getCommentID($comment_id){
   $sql = "SELECT * FROM comments WHERE ID = ?";
   $stmt = $this->conn->prepare($sql);

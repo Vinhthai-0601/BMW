@@ -6,7 +6,12 @@
     height: auto;
     margin-left: -160px;
 }
+<<<<<<< Updated upstream
 p.card-text.comment-p {
+=======
+
+p.card-text {
+>>>>>>> Stashed changes
     color: black !important;
 }
 body.main-layout {
