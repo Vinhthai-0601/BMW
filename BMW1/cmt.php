@@ -11,7 +11,12 @@ if(isset($_GET['id'])) {
   $comments = new Comment($theid, $conn);
   $comments->getComments();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   var_dump($comments);
+=======
+  $replies = new Reply($theid, $conn);
+  $replies->getReplies();
+>>>>>>> Stashed changes
 =======
   $replies = new Reply($theid, $conn);
   $replies->getReplies();

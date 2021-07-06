@@ -15,7 +15,11 @@ if (isset($_POST['submit'])) {
     $_SESSION['username'] = $row['username'];
     $_SESSION['user_id'] = $row['id'];
 		$_SESSION['user_role'] = $row['role'];
+<<<<<<< Updated upstream
 		// var_dump($row);
+=======
+		$_SESSION['user_img'] = $row['user_img'];
+>>>>>>> Stashed changes
     $location = "Location:  index.php?id=" . $stmt->insert_id . "&new=true";
     header($location);
 	} else {

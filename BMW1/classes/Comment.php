@@ -42,7 +42,11 @@ class Comment {
 
   public function getComment() {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
+=======
+    $sql = "SELECT cm.ID as comment_id, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
+>>>>>>> Stashed changes
 =======
     $sql = "SELECT cm.ID as comment_id, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
 >>>>>>> Stashed changes
@@ -56,6 +60,7 @@ class Comment {
 
 
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   public function outputComments() {
     $output = '';
@@ -86,6 +91,18 @@ class Comment {
         <a href='user.php?id={$comment['UID']}' class='comment-user-id' data-comment-user-id='{$comment['UID']}'>
           {$comment['username']}</a>| {$comment['date_created']}
 
+=======
+  public function outputComments($replies) {
+    $output = "";
+    foreach ($this->comments as $comment) {
+    echo "<div class='comment-wrapper col-md-12'>
+      <div class='col-md-8 mt-2 mb-2 comment'>
+      <div class='card'>
+        <div class='card-header'>
+        <a href='user.php?id={$comment['UID']}' class='comment-user-id' data-comment-user-id='{$comment['UID']}'>
+          {$comment['username']}</a>| {$comment['date_created']}
+
+>>>>>>> Stashed changes
           <button class='btn btn-outline-danger btn-sm  float-right delete-post' data-comment-id={$comment['CID']} >X</button>
 
            <button class='btn float-right btn-sm btn-outline-secondary mr-2 reply-comment' data-comment-id='{$comment['CID']}' data-comment-user-id='{$comment['UID']}'>reply</button>
@@ -102,6 +119,9 @@ class Comment {
     echo "</div>";
   }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 public function getCommentID($comment_id){
   $sql = "SELECT * FROM comments WHERE ID = ?";
