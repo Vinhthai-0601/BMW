@@ -66,7 +66,7 @@
                                  <input type="text" name="search" placeholder="Search..">
                                  <?php if ($_SESSION['loggedin'] == true): ?>
                                   <li class="mean-last">
-                                    <a href="login.php"> <?php echo htmlspecialchars($_SESSION['username']); ?>|<span class="sr-only">(current)</span></a>
+                                    <a href="user.php?"> <?php echo htmlspecialchars($_SESSION['username']); ?>|<span class="sr-only">(current)</span></a>
                                   </li>
                                   <li>
                                     <a class="nav-link" href="logout.php">Logout <span class="sr-only">(current)</span></a>
