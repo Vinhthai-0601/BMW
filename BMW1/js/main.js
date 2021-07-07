@@ -55,8 +55,6 @@ function commentAjax(comment, postid, theaction) {
   xhr.send("comment="+comment+"&post_id="+postid);
 }
 
-
-
 function outputNewComment(output, iscomment = true, parent = false) {
   let wrapperdiv = document.createElement('div');
   if(iscomment) {
@@ -90,7 +88,7 @@ function outputNewComment(output, iscomment = true, parent = false) {
 
 function deleteCommentAjax(comment_id, parent_card) {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "func/ajaxmanager.php", true);
+  xhr.open("POST","func/ajaxManager.php", true);
   // to use the post method we must set the request headers
   // depending on the form data being sent
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -108,11 +106,235 @@ function deleteCommentAjax(comment_id, parent_card) {
           notification("Comment successfully removed!", "success", "fas fa-check-circle");
         },400);
       } else {
-        notification("Could not remove this comment!", "danger", "fas fa-times");
+        notification("Could not remove this comment because you not the comment user or admin!", "danger", "fas fa-times");
+      }
+    }
+    xhr.send("delete-comment=true&comment_id="+comment_id);
+  }
+
+//Reply Comment
+function replyCommentAjax(comment_id, reply_user_id, parent_card, comment_text, reply_form) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "func/ajaxManager.php", true);
+  // to use the post method we must set the request headers
+  // depending on the form data being sent
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+    if(this.status == 200) {
+      let result = JSON.parse(this.responseText);
+      console.log(result.comment);
+      if (result.comment.hasOwnProperty('CID')) {
+        outputNewComment(result, false, parent_card);
+        console.log(parent_card);
+        reply_form.remove();
+      } else {
+        console.log("CID not found");
       }
     }
   }
-  xhr.send("delete-comment=true&comment_id="+comment_id);
+  xhr.send("reply-comment=true&comment_id="+comment_id+"&reply_user_id="+reply_user_id+"&comment_text="+comment_text);
+}
+
+commentsdiv.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log("click");
+  if(e.target.classList.contains("delete-post")){
+    let comment_target = e.target;
+    let comment_id = e.target.getAttribute("data-comment-id");
+    console.log("delete:" + comment_id);
+    let parent_card = e.target.closest(".comment-wrapper");
+    deleteCommentAjax(comment_id, parent_card);
+  } else if (e.target.classList.contains("reply-comment")) {
+    let reply_target = e.target;
+    console.log(reply_target);
+    let comment_id = reply_target.getAttribute("data-comment-id");
+    let reply_user_id = reply_target.getAttribute("data-comment-user-id");
+    console.log("reply user id = " + reply_user_id);
+    console.log("reply to:" + comment_id);
+    let parent_card = e.target.closest(".comment");
+    let formclone = theform.cloneNode(true);
+    formclone.setAttribute("data-comment-id", comment_id);
+    formclone.setAttribute("data-comment-user-id", reply_user_id);
+    formclone.classList = "comment-form col-md-12 mt-2";
+    parent_card.classList.add("active-reply");
+    parent_card.append(formclone);
+  } else if (e.target.classList.contains("comment-submit")) {
+    console.log("submit clicked");
+    let reply_target = e.target;
+    console.log(reply_target);
+    let reply_form = reply_target.closest("form")
+    let comment_id = reply_form.getAttribute("data-comment-id");
+    let reply_user_id = reply_form.getAttribute("data-comment-user-id");
+    let comment_text = reply_form.querySelector("textarea").value;
+    let parent_card = e.target.closest(".comment");
+    parent_card.classList.remove("active-reply");
+    replyCommentAjax(comment_id, reply_user_id, parent_card, comment_text, reply_form);
+  } else if (e.target.classList.contains("thumb")) {
+    let el = e.target;
+    reviewPost(el)
+  }
+
+  console.log(e);
+});
+
+function reviewPost(el) {
+  console.log(el);
+  let parentcard = el.closest(".card");
+  let comment_id = parentcard.querySelector(".reply-comment").getAttribute("data-comment-id");
+  let review_value = el.getAttribute("data-review-value");
+  let review_type = el.getAttribute("data-review-type");
+
+  reviewAjax(comment_id, review_value, review_type, el);
+}
+
+//Reply Comment
+function replyCommentAjax(comment_id, reply_user_id, parent_card, comment_text, reply_form) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "func/ajaxManager.php", true);
+  // to use the post method we must set the request headers
+  // depending on the form data being sent
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+    if(this.status == 200) {
+      let result = JSON.parse(this.responseText);
+      console.log(result.comment);
+      if (result.comment.hasOwnProperty('CID')) {
+        outputNewComment(result, false, parent_card);
+        console.log(parent_card);
+        reply_form.remove();
+      } else {
+        console.log("CID not found");
+      }
+    }
+  }
+  xhr.send("reply-comment=true&comment_id="+comment_id+"&reply_user_id="+reply_user_id+"&comment_text="+comment_text);
+}
+
+commentsdiv.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log("click");
+  if(e.target.classList.contains("delete-post")){
+    let comment_target = e.target;
+    let comment_id = e.target.getAttribute("data-comment-id");
+    console.log("delete:" + comment_id);
+    let parent_card = e.target.closest(".comment-wrapper");
+    deleteCommentAjax(comment_id, parent_card);
+  } else if (e.target.classList.contains("reply-comment")) {
+    let reply_target = e.target;
+    console.log(reply_target);
+    let comment_id = reply_target.getAttribute("data-comment-id");
+    let reply_user_id = reply_target.getAttribute("data-comment-user-id");
+    console.log("reply user id = " + reply_user_id);
+    console.log("reply to:" + comment_id);
+    let parent_card = e.target.closest(".comment");
+    let formclone = theform.cloneNode(true);
+    formclone.setAttribute("data-comment-id", comment_id);
+    formclone.setAttribute("data-comment-user-id", reply_user_id);
+    formclone.classList = "comment-form col-md-12 mt-2";
+    parent_card.classList.add("active-reply");
+    parent_card.append(formclone);
+  } else if (e.target.classList.contains("comment-submit")) {
+    console.log("submit clicked");
+    let reply_target = e.target;
+    console.log(reply_target);
+    let reply_form = reply_target.closest("form")
+    let comment_id = reply_form.getAttribute("data-comment-id");
+    let reply_user_id = reply_form.getAttribute("data-comment-user-id");
+    let comment_text = reply_form.querySelector("textarea").value;
+    let parent_card = e.target.closest(".comment");
+    parent_card.classList.remove("active-reply");
+    replyCommentAjax(comment_id, reply_user_id, parent_card, comment_text, reply_form);
+  } else if (e.target.classList.contains("thumb")) {
+    let el = e.target;
+    reviewPost(el)
+  }
+
+  console.log(e);
+});
+
+function reviewPost(el) {
+  console.log(el);
+  let parentcard = el.closest(".card");
+  let comment_id = parentcard.querySelector(".reply-comment").getAttribute("data-comment-id");
+  let review_value = el.getAttribute("data-review-value");
+  let review_type = el.getAttribute("data-review-type");
+
+  reviewAjax(comment_id, review_value, review_type, el);
+}
+
+//Reply Comment
+function replyCommentAjax(comment_id, reply_user_id, parent_card, comment_text, reply_form) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "func/ajaxManager.php", true);
+  // to use the post method we must set the request headers
+  // depending on the form data being sent
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onload = function() {
+    if(this.status == 200) {
+      let result = JSON.parse(this.responseText);
+      console.log(result.comment);
+      if (result.comment.hasOwnProperty('CID')) {
+        outputNewComment(result, false, parent_card);
+        console.log(parent_card);
+        reply_form.remove();
+      } else {
+        console.log("CID not found");
+      }
+    }
+  }
+  xhr.send("reply-comment=true&comment_id="+comment_id+"&reply_user_id="+reply_user_id+"&comment_text="+comment_text);
+}
+
+commentsdiv.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log("click");
+  if(e.target.classList.contains("delete-post")){
+    let comment_target = e.target;
+    let comment_id = e.target.getAttribute("data-comment-id");
+    console.log("delete:" + comment_id);
+    let parent_card = e.target.closest(".comment-wrapper");
+    deleteCommentAjax(comment_id, parent_card);
+  } else if (e.target.classList.contains("reply-comment")) {
+    let reply_target = e.target;
+    console.log(reply_target);
+    let comment_id = reply_target.getAttribute("data-comment-id");
+    let reply_user_id = reply_target.getAttribute("data-comment-user-id");
+    console.log("reply user id = " + reply_user_id);
+    console.log("reply to:" + comment_id);
+    let parent_card = e.target.closest(".comment");
+    let formclone = theform.cloneNode(true);
+    formclone.setAttribute("data-comment-id", comment_id);
+    formclone.setAttribute("data-comment-user-id", reply_user_id);
+    formclone.classList = "comment-form col-md-12 mt-2";
+    parent_card.classList.add("active-reply");
+    parent_card.append(formclone);
+  } else if (e.target.classList.contains("comment-submit")) {
+    console.log("submit clicked");
+    let reply_target = e.target;
+    console.log(reply_target);
+    let reply_form = reply_target.closest("form")
+    let comment_id = reply_form.getAttribute("data-comment-id");
+    let reply_user_id = reply_form.getAttribute("data-comment-user-id");
+    let comment_text = reply_form.querySelector("textarea").value;
+    let parent_card = e.target.closest(".comment");
+    parent_card.classList.remove("active-reply");
+    replyCommentAjax(comment_id, reply_user_id, parent_card, comment_text, reply_form);
+  } else if (e.target.classList.contains("thumb")) {
+    let el = e.target;
+    reviewPost(el)
+  }
+
+  console.log(e);
+});
+
+function reviewPost(el) {
+  console.log(el);
+  let parentcard = el.closest(".card");
+  let comment_id = parentcard.querySelector(".reply-comment").getAttribute("data-comment-id");
+  let review_value = el.getAttribute("data-review-value");
+  let review_type = el.getAttribute("data-review-type");
+
+  reviewAjax(comment_id, review_value, review_type, el);
 }
 
 //Reply Comment
