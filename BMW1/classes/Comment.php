@@ -41,46 +41,16 @@ class Comment {
   }
 
   public function getComment() {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    $sql = "SELECT cm.ID, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
-=======
     $sql = "SELECT cm.ID as comment_id, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
->>>>>>> Stashed changes
-=======
-    $sql = "SELECT cm.ID as comment_id, cm.comment_text, u.username, cm.date_created FROM comments cm JOIN users u ON u.id = cm.comment_user WHERE cm.ID = ?";
->>>>>>> Stashed changes
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $this->insert_id);
     $stmt->execute();
     $result = $stmt->get_result();
-    echo json_encode($result);
     echo json_encode($result->fetch_assoc());
 }
 
 
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  public function outputComments() {
-    $output = '';
-    foreach ($this->comments as $comment) {
-      $output .= "<div class='card mt-2 mb-2 comment-wrapper grow'>
-        <div class='card-header'>
-          {$comment['username']} | {$comment['date_created']}
-          <a href='func/commentmanager.php?id={$comment['ID']}'>
-          <button class='btn btn-outline-danger btn-sm  float-right delete-post' comment-id={$comment['ID']} >X</button>
-          </a>
-        </div>
-          <div class='card-body'>
-            <p class='card-text comment-p'>{$comment['comment_text']} </p>
-          </div>
-      </div>";
-    }
-    echo $output;
-  }
-
-=======
   public function outputComments($replies) {
     $output = "";
     foreach ($this->comments as $comment) {
@@ -91,18 +61,6 @@ class Comment {
         <a href='user.php?id={$comment['UID']}' class='comment-user-id' data-comment-user-id='{$comment['UID']}'>
           {$comment['username']}</a>| {$comment['date_created']}
 
-=======
-  public function outputComments($replies) {
-    $output = "";
-    foreach ($this->comments as $comment) {
-    echo "<div class='comment-wrapper col-md-12'>
-      <div class='col-md-8 mt-2 mb-2 comment'>
-      <div class='card'>
-        <div class='card-header'>
-        <a href='user.php?id={$comment['UID']}' class='comment-user-id' data-comment-user-id='{$comment['UID']}'>
-          {$comment['username']}</a>| {$comment['date_created']}
-
->>>>>>> Stashed changes
           <button class='btn btn-outline-danger btn-sm  float-right delete-post' data-comment-id={$comment['CID']} >X</button>
 
            <button class='btn float-right btn-sm btn-outline-secondary mr-2 reply-comment' data-comment-id='{$comment['CID']}' data-comment-user-id='{$comment['UID']}'>reply</button>
@@ -119,10 +77,6 @@ class Comment {
     echo "</div>";
   }
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 public function getCommentID($comment_id){
   $sql = "SELECT * FROM comments WHERE ID = ?";
   $stmt = $this->conn->prepare($sql);
