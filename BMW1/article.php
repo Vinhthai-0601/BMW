@@ -1,7 +1,6 @@
 <?php
 include 'db.php';
 include 'includes/header.php';
-
 $num_rows = 0;
 if(isset($_GET['id'])) {
   $sql = "SELECT posts.Date_time, posts.Title, posts.Content, posts.Author, posts.Post_ID, posts.Image

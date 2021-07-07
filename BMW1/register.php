@@ -4,10 +4,8 @@ include 'config.php';
 
 error_reporting(0);
 
-session_start();
-
-// if (isset($_SESSION['username'])) {
-//     header("Location: index.php");
+// if(isset($_POST['submit'])) {
+//   checkUser($_POST, $_FILES, $errors,$conn, 0);
 // }
 
 if (isset($_POST['submit'])) {
@@ -15,13 +13,15 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
-
+	$imgurl = validateFile($_FILES, "img");
+	var_dump($_POST);
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
+		var_dump($result);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
+			$sql = "INSERT INTO users (username, email, password, user_img)
+					VALUES ('$username', '$email', '$password','$imgurl')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
@@ -40,7 +40,6 @@ if (isset($_POST['submit'])) {
 		} else {
 			echo "<script>alert('Woops! Email Already Exists.')</script>";
 		}
-
 	} else {
 		echo "<script>alert('Password Not Matched.')</script>";
 	}
@@ -63,7 +62,7 @@ if (isset($_POST['submit'])) {
 <body>
 	<div class="container">
 		<form action="" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
+        <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
 				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
 			</div>
@@ -72,9 +71,13 @@ if (isset($_POST['submit'])) {
 			</div>
 			<div class="input-group">
 				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
-            </div>
-            <div class="input-group">
+      </div>
+      <div class="input-group">
 				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
+			</div>
+			<div class="input-group">
+				<label for="img">Image Address</label>
+				<input type="file" name="img" value="" class="mt-3 mb-3 form-control">
 			</div>
 			<div class="input-group">
 				<button name="submit" class="btn">Register</button>

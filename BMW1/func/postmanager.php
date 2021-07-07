@@ -3,7 +3,6 @@ $errors = [];
 function checkPost($post, $file, &$errors, $conn, $num) {
   $title = $_POST['title'];
   $body = $_POST['content'];
-  // $cmt = $_POST['comment'];
   $author = $_SESSION['username'];
   $user_id = $_SESSION['user_id'];
   $imgurl = validateFile($file, "img");
@@ -98,20 +97,89 @@ function outputPosts($posts, $col = 6, $img = true, $teaserlen = 150, $readmore 
   return $output;
 }
 
-// public function deletePost() {
-//   $sql = "DELETE FROM posts WHERE id = ?";
-//   $stmt = $this->conn->prepare($sql);
-//   $stmt->bind_param("i", $this->id);
-//   $stmt->execute();
-//   if($stmt->affected_rows == 1) {
-//     echo "<h1 class='display-2'>Post was deleted!</h1>".
-//     "<a href='index.php?id=1'><button class='btn btn-primary'>Return Home</button></a>";
-//   } else {
-//    echo '<div class="alert alert-danger" role="alert">
-//       Row not found or deleted!
-//     </div>';
-//   }
-// }
+function checkUser($post, $file, &$errors, $conn, $num) {
+  $user = $_POST['username'];
+  $email = $_POST['email'];
+  $password = md5($_POST['password']);
+  $cpassword = md5($_POST['cpassword']);
+  $imgurl = validateFile($file, "img");
+  $_SESSION['loggedin'] = true;
+  $_SESSION['username'] = $_POST['username'];
+
+  if ($password != $cpassword) {
+      $errors['pass_match'] = "Password Not Matched!";
+  }
+
+  if(validateFile($file, "image")) {
+    $errors['post_img'] = "There was a problem with your image upload!";
+  }
+
+  if(!$imgurl) {
+    $errors['post_file'] = "There was a problem with your image upload!";
+  }
+
+  if(empty($errors) && $num == 0 ) {
+    $sql = "SELECT * FROM users WHERE email='$email'";
+		$result = mysqli_query($conn, $sql);
+    if (!$result->num_rows > 0) {
+      createUser($user, $email, $password, $imgurl, $conn);
+    } else {
+      echo "<script>alert('Woops! Something Wrong Went.')</script>";
+    }
+  } else {
+    echo "<script>alert('Woops! Email Already Exists.')</script>";
+  }
+}
+
+function createUser($name, $email, $password, $imgurl, $conn) {
+  $sql = "INSERT INTO posts (username, email, password,user_img) VALUES (?,?,?,?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ssss", $name, $email, $password, $imgurl);
+  $stmt->execute();
+  if($stmt->affected_rows == 1) {
+    echo "<script>alert('Wow! User Registration Completed.')</script>";
+    $_SESSION['loggedin'] = true;
+    $_SESSION['username'] = $row['username'];
+    $_SESSION['user_id'] = $row['id'];
+    $location = "Location:  index.php?id=" . $stmt->insert_id . "&new=true";
+    header($location);
+  }
+}
+
+ function getUser($id,$conn) {
+  $sql = "SELECT * FROM users WHERE id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $id);
+  $stmt->execute();
+  $results = $stmt->get_result();
+  if($results->num_rows == 1) {
+    return $results->fetch_assoc();
+  } else {
+    return false;
+  }
+}
+
+ function outputUser($post, $img = true, $col = 6, $teaserlen = 150, $readmore = true) {
+  $output = "";
+    if($img == true) {
+      if($post['user_img'] == '') {
+        $theimg = "images/default.png";
+      } else {
+        $theimg = $post['user_img'];
+      }
+      $postimg = "<img src='{$theimg}' style='max-width:100%'>";
+    } else {
+      $postimg = "";
+    }
+    $output.= "<div class='col-md-{$col}'>
+    {$postimg}
+    <h3 class='text-center'>Name : {$post['username']}</h3>
+    <h4 class='font-weight-light text-center'>ID: {$post['id']}</h4>
+    <h4 class='font-weight-light text-center'>Email: <em>{$post['email']}</em></h4>
+    <br>
+    </div>";
+  return $output;
+}
 
 function redirectToPost($id, $get = false) {
   $location = "Location: index.php?id=". $id . "&created=true";
