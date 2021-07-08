@@ -1,6 +1,7 @@
 <?php
 include 'db.php';
 include 'includes/header.php';
+
 $num_rows = 0;
 if(isset($_GET['id'])) {
   $sql = "SELECT posts.Date_time, posts.Title, posts.Content, posts.Author, posts.Post_ID, posts.Image
@@ -37,6 +38,8 @@ if(isset($_GET['id'])) {
 }
 
  </style>
+   <div id="fb-root"></div>
+ <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="FSb2WoeI"></script>
  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
@@ -47,6 +50,7 @@ if(isset($_GET['id'])) {
           <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back</a></button><br>
           <?php if (isset($row)): ?>
             <img src="<?php echo $img; ?> " style='max-width:100%'>
+
             <h5 class="display-3"><?php echo $title; ?></h5>
             <h3>Author:  <?php echo $author; ?></h3>
             <p>Content: <?php echo $body ?></p>

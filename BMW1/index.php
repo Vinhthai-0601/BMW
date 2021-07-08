@@ -2,6 +2,7 @@
 include 'includes/header.php';
 include 'func/filemanager.php';
 include 'func/postmanager.php';
+
 include 'classes/post.php';
 
 $sql = "SELECT * FROM posts";
@@ -63,6 +64,7 @@ $rows = $results->fetch_all(MYSQLI_ASSOC);
           $posts = getPosts(12, $conn);
            echo outputPosts($posts);
            ?>
+
         </div>
       </div>
 

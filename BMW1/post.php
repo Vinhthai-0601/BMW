@@ -1,6 +1,7 @@
 <?php
 include 'includes/header.php';
  ?>
+   <link rel="stylesheet" href="css/contact.css">
  <section class="slider_section">
     <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
        <div class="carousel-inner">
@@ -88,38 +89,7 @@ include 'includes/header.php';
          </div>
       </div>
       <!-- end Contact -->
-      <!-- footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row pdn-top-30">
-                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                     <div class="Follow">
-                        <h3>CONTACT US</h3>
-                     </div>
-                     <ul class="location_icon">
-                        <li> <a href="#"><img src="icon/facebook.png"></a></li>
-                        <li> <a href="#"><img src="icon/Twitter.png"></a></li>
-                        <li> <a href="#"><img src="icon/linkedin.png"></a></li>
-                        <li> <a href="#"><img src="icon/instagram.png"></a></li>
-                     </ul>
-                  </div>
-                  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                     <div class="Follow">
-                        <h3>CONTACT US WITH YOUR EMAIL</h3>
-                     </div>
-                     <input class="Newsletter" placeholder="Enter your email" type="Enter your email">
-                     <button class="Subscribe">SENT</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="copyright">
-            <div class="container">
-               <p>Car World's Page belong to Minh Nhật & Vinh Thái!<a href="#"></a></p>
-            </div>
-         </div>
-      </footer>
+
       <!-- end footer -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
@@ -131,4 +101,34 @@ include 'includes/header.php';
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
    </body>
-</html>
+   <footer>
+      <div class="footer">
+         <div class="container">
+            <div class="row pdn-top-30">
+               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                  <div class="Follow">
+                     <h3>CONTACT US</h3>
+                  </div>
+                  <ul class="location_icon">
+                     <li> <a href="#"><img src="icon/facebook.png"></a></li>
+                     <li> <a href="#"><img src="icon/Twitter.png"></a></li>
+                     <li> <a href="#"><img src="icon/linkedin.png"></a></li>
+                     <li> <a href="#"><img src="icon/instagram.png"></a></li>
+                  </ul>
+               </div>
+               <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                  <div class="Follow">
+                     <h3>CONTACT US WITH YOUR EMAIL</h3>
+                  </div>
+                  <input class="Newsletter" placeholder="Enter your email" type="Enter your email">
+                  <button class="Subscribe">SENT</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+   </footer>
+
+   <?php
+   include 'includes/footer.php';
+    ?>

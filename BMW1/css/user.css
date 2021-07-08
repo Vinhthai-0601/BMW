@@ -1,0 +1,36 @@
+.col-md-6 {
+  border: 1px solid #000000;
+    margin: 10px 0px 0px 0px;
+}
+.Library {
+    background-color: #ffffff;
+    padding: 20px 0px;
+    margin-top: 150px;
+}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 3px solid rgb(255 0 0);
+}
+.row1 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -14px;
+    margin-left: -15px;
+    justify-content: center;
+}
+footer nav ul li a {
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 12px;
+    color: black;
+}
+footer nav ul li a:hover{
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 16px;
+    color: pink;
+}

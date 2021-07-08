@@ -21,11 +21,11 @@ h2.font-weight-light.mt-4 {
     font-size: 60px;
     font-family: 'Carter One', cursive;
 }
-p {
+p{
     text-align: center;
     color: white;
-  font-family: 'Leckerli One', cursive;
-  font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
 }
 .h5, h5 {
     font-size: 1.25rem;
@@ -40,15 +40,15 @@ h3.display-4.mt-3.mb-3 {
 .form-control {
     display: block;
     width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
+    padding: 0.375rem .75rem;
+    font-size: 30px;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-image: none;
     background-clip: padding-box;
-    border: 1px solid #f600ff;
-    border-radius: .25rem;
+    border: 1px solid #000000;
+    box-shadow: black;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .btn-outline-success {
@@ -64,10 +64,16 @@ h3.display-4.mt-3.mb-3 {
     border-color: #000000;
 }
 a {
-    color: pink;
+    color: black;
 }
 a:hover {
     color: black;
     font-size:20px;
     text-decoration-line: underline;
+}
+p.card-text.comment-p {
+    text-align: center;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
 }

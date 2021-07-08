@@ -37,7 +37,9 @@ p {
     margin-bottom: 1rem;
     color: white;
     text-align: center;
+    font-size: 15px;
 }
+
 em {
     color: white;
 }

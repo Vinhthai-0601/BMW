@@ -59,9 +59,7 @@
                               <ul class="menu-area-main">
                                  <li > <a href="index.php">Home</a> </li>
                                  <li class="active"> <a href="about.php">About us</a> </li>
-                                 <li><a href="books.php">Our Books</a></li>
-                                 <li><a href="library.php">library</a></li>
-                                 <li><a href="contact.php">Contact us</a></li>
+                                 <li><a href="post.php">Contact us</a></li>
                                  <li><a href="create.php">Create Post</a></li>
                                  <input type="text" name="search" placeholder="Search..">
                                  <?php if ($_SESSION['loggedin'] == true): ?>

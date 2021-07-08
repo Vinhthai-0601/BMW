@@ -39,8 +39,8 @@ if(isset($_GET['id']) && $_SESSION['loggedin'] == true){
 <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
- <div class="container">
-   <div class="row">
+ <div class="container1">
+   <div class="row1">
      <?php if ($_SESSION['loggedin'] == false): ?>
        <div class="container text-center">
          <h2>Please Login first!!!</h2>
@@ -56,6 +56,20 @@ if(isset($_GET['id']) && $_SESSION['loggedin'] == true){
          <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back to home page</a></button><br>
        </div>
      <?php else :?>
+
+       <div class="Library">
+          <div class="container">
+
+             <div class="row">
+                <div class="col-md-10 offset-md-1">
+                   <div class="titlepage">
+                      <h2>Edit <strong class="black">Post Below Here!  </strong></h2>
+
+                   </div>
+                </div>
+             </div>
+          </div>
+        </div>
      <div class="col-md-6 mt-5 ">
        <form class="" action="edit.php" method="post" enctype="multipart/form-data">
          <label for="title">Title</label>
@@ -66,13 +80,10 @@ if(isset($_GET['id']) && $_SESSION['loggedin'] == true){
          <img src="<?php echo $img ?>" style='max-width:100%'>
          <input type="file" name="img" value="" class="mt-3 mb-3 form-control">
          <input type="number" name="postid" value="<?php echo $_GET['id'];?>" hidden>
-         <button type="submit" name="submit" style="margin-left: 33%;" class="btn btn-lg btn-dark mt-3"><i class="fas fa-edit mr-2"></i>Update</button>
+         <button type="submit" name="submit" style="margin-left: 45%;" class="btn btn-lg btn-dark mt-3"><i class="fas fa-edit mr-2"></i>Update</button>
        </form>
      </div>
-     <div class="col-md-6 ">
-       <img src="https://dichvuquangcao.vn/wp-content/uploads/2021/04/yty.png" style="width: 130%;
-   margin-top: 19%;" alt="">
-     </div>
+
    <?php endif; ?>
     </div>
   </div>

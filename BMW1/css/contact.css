@@ -1,0 +1,23 @@
+.main_bt {
+    background: transparent;
+    color: #fff;
+    padding: 0px 26px 1px 32px;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    border: solid #fff 2px;
+    border-radius: 32px;
+    margin: 5px 11px 20px 600px;
+
+}footer nav ul li a{
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 12px;
+    color: black;
+}
+footer nav ul li a:hover{
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 20px;
+    color: hotpink;
+}

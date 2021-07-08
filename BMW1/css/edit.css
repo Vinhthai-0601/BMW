@@ -35,3 +35,56 @@ button.btn.btn-dark.mb-2:hover {
 h3{
    color:#d60090e0;
   }
+form {
+    display: block;
+    width: 100%;
+    padding: 0.375rem .75rem;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #000000;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    margin-left: 450px;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: black;
+    text-align: center;
+}
+button.btn.btn-lg.btn-dark.mt-3 {color: #ffffff;
+    background-color: #000000;
+    background-image: none;
+    border-color: #000000;
+}
+button.btn.btn-lg.btn-dark.mt-3:hover {
+  color: #fffafa;
+  background-color: #ff00d4c9;
+  background-image: none;
+  border-color: #ff00d4c9;
+}
+h2 {
+    color: red;
+}
+h4 {
+    color: red;
+}textarea.form-control.mb-3 {
+    font-size: 20px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #000000;
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}

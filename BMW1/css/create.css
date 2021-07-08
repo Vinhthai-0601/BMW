@@ -29,9 +29,9 @@ body {
 .container {
     width: 400px;
     min-height: 400px;
-    background: #f9dbf7;;
+    background: #ffffff;;
     border-radius: 5px;
-    box-shadow: 0 0 100px rgb(224 33 138);
+    box-shadow: 0 0 100px rgb(0 0 0);
     padding: 40px 30px;
     margin:200px
 }
@@ -179,11 +179,7 @@ label {
     margin-bottom: 1rem !important;
     color: hotpink;
 }
-button.btn.btn-lg.btn-dark.mt-3 {
-    color: deeppink;
-    background: white;
-    border: pink;
-}
+
 h5, .h5 {
     font-size: 4.25rem;
     margin-bottom: 100px;
@@ -194,4 +190,9 @@ a {
     color: #710066;
     text-decoration: none;
     background-color: #391e1e00;
+}
+button.btn.btn-lg.btn-dark.mt-3 {
+    color: #d40072;
+    background: #131313;
+    border: black;
 }
