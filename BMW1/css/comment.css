@@ -77,3 +77,15 @@ p.card-text.comment-p {
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
 }
+._2tga {
+    background: #d800ff;
+    border: 1px solid #d800ff;
+    color: #000;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    position: relative;
+    -webkit-user-select: none;
+    white-space: nowrap;
+}

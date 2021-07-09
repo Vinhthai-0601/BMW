@@ -25,7 +25,9 @@ if(isset($_GET['id'])) {
 <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="9ymJyXDy"></script>
  <div class="container post">
    <div class="row">
      <?php if ($post == false): ?>
@@ -34,6 +36,8 @@ if(isset($_GET['id'])) {
      <?php else: ?>
        <div class="col-md-8 offset-md-2">
           <img src="<?php echo $post['Image']; ?>" class="img-fluid" alt="">
+          <!-- Like BEGIN -->
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
           <h2 class="font-weight-light mt-4"><?php echo htmlspecialchars($post['Title']); ?></h2>
           <p><?php echo htmlspecialchars($post['Content']); ?></p>
           <h5><em><?php echo htmlspecialchars($post['Date_time']); ?>

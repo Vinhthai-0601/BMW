@@ -50,7 +50,10 @@ if(isset($_GET['id'])) {
           <button type="button" class="btn btn-dark mb-2"><a href='index.php'>< Back</a></button><br>
           <?php if (isset($row)): ?>
             <img src="<?php echo $img; ?> " style='max-width:100%'>
-
+            <!-- Like BEGIN -->
+  <span class="likebtn-wrapper" data-theme="padded" data-white_label="true" data-identifier="item_1" data-popup_style="dark" data-loader_show="true"></span>
+  <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+  <!-- Like END -->
             <h5 class="display-3"><?php echo $title; ?></h5>
             <h3>Author:  <?php echo $author; ?></h3>
             <p>Content: <?php echo $body ?></p>
