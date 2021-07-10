@@ -1,7 +1,7 @@
 <?php
-
+include 'func/postmanager.php';
 include 'config.php';
-
+include 'func/filemanager.php';
 error_reporting(0);
 
 // if(isset($_POST['submit'])) {
@@ -14,7 +14,6 @@ if (isset($_POST['submit'])) {
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
 	$imgurl = validateFile($_FILES, "img");
-	var_dump($_POST);
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
@@ -61,7 +60,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="" method="POST" class="login-email" enctype="multipart/form-data">
         <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
 				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
