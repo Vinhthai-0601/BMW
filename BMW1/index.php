@@ -2,7 +2,6 @@
 include 'includes/header.php';
 include 'func/filemanager.php';
 include 'func/postmanager.php';
-
 include 'classes/post.php';
 
 $sql = "SELECT * FROM posts";
